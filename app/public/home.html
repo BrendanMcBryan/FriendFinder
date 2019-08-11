@@ -1,13 +1,44 @@
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Friend Finder</title>
-</head>
-<body>
-  <h1>Home Page</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Friend Finder</title>
 
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/cc45af3f98.js"></script>
+  </head>
 
+  <body>
+    <div class="container">
+      <div class="jumbotron text-center">
+        <h1 style="margin-bottom: 1rem">
+          Hello and welcome to friend finder!
+        </h1>
+
+        <div class="text-center">
+          <a href="/survey"
+            ><button class="btn btn-lg btn-outline-primary">
+              <i class="fas fa-user-friends"></i> Find Friends
+            </button></a
+          >
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="container">
+          <p>
+            <a href="/api/friends">API Table Link</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>

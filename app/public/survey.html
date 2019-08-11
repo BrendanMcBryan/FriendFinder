@@ -1,65 +1,259 @@
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Friend Finder</title>
-</head>
-<body>
-  <h1>Survey Screen</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Friend Finder</title>
 
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/cc45af3f98.js"></script>
+  </head>
 
+  <body>
+    <div class="container">
+      <div class="jumbotron text-center">
+        <h1 style="margin-bottom: 1rem">
+          Friend Finder Survey!
+        </h1>
+        <h3>Please Answer the follwoing 10 Questions.</h3>
+        <p>
+          5 Indicates Strong Agreement | 3 Indicates Indifference | 1 Indicates
+          Strong Disagreement
+        </p>
+      </div>
+      <section class="form-section">
+        <div class="row justify-content-around">
+          <div class="col-4">
+            <div class="form-group">
+              <label for="nameInput">Please enter your name…</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nameInput"
+                placeholder="Guy Incognito"
+              />
+            </div>
+          </div>
+          <div class="col-7">
+            <div class="form-group">
+              <label for="imgURLInput"
+                >Please enter an URL to your image…</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="imgURLInput"
+                placeholder="http://"
+              />
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="row justify-content-around">
+          <div class="col-2">
+            <div class="form-group">
+              <label for="surveyQ1">What are your Thoughts on Sunsets?</label>
+              <select class="form-control" id="surveyQ1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+              <label for="surveyQ2">What are your Thoughts on Sunrises?</label>
+              <select class="form-control" id="surveyQ2">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+              <label for="surveyQ3">Do you like to read Books?</label>
+              <select class="form-control" id="surveyQ3">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+              <label for="surveyQ4">Do you enjoy going to the Movies?</label>
+              <select class="form-control" id="surveyQ4">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+              <label for="surveyQ5">Are you a sports fan?</label>
+              <select class="form-control" id="surveyQ5">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="row justify-content-around">
+          <div class="col-2">
+            <div class="form-group">
+              <label for="surveyQ6">What are your Thoughts Beaches?</label>
+              <select class="form-control" id="surveyQ6">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+              <label for="surveyQ"
+                >What is your favorite Number between 1 and 5?</label
+              >
+              <select class="form-control" id="surveyQ7">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+              <label for="surveyQ8">Do you like traveling? </label>
+              <select class="form-control" id="surveyQ8">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+              <label for="surveyQ9"
+                >Do you thing the Phillies will win the World Series this
+                year?</label
+              >
+              <select class="form-control" id="surveyQ9">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+              <label for="surveyQ10"
+                >What are your thoughts on Revolution?</label
+              >
+              <select class="form-control" id="surveyQ10">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <button type="submit" class="submit btn btn-info">
+          Submit Survey Answers
+        </button>
+      </section>
+
+      <footer class="footer" style="margin-top: 2rem">
+        <div class="container">
+          <p>
+            <a href="/api/friends">API Table Link</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>
 
-
+<!-- Code for sending data to our server -->
 <script type="text/javascript">
-  // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
-  // In essence, when the user hits submit, javascript grabs all of the fields then sends a post request to our api
-  // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
-  // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
-
+  
   const submitButton = document.querySelector(".submit");
 
   submitButton.addEventListener("click", event => {
     event.preventDefault();
 
-    const nameInput = document.querySelector("#reserve-name");
-    const phoneInput = document.querySelector("#reserve-phone");
-    const emailInput = document.querySelector("#reserve-email");
-    const uniqueIdInput = document.querySelector("#reserve-unique-id");
+    const nameInput = document.querySelector("#nameInput");
+    const photoInput = document.querySelector("#imgURLInput");
 
-    const newReservation = {
-      customerName: nameInput.value,
-      phoneNumber: phoneInput.value,
-      customerEmail: emailInput.value,
-      customerID: uniqueIdInput.value
+    const scoresArray = [];
+    for (let i = 1; i < 11; i++) {
+      let surveyQx = "#surveyQ" + i;
+      let answerX = document.querySelector(surveyQx);
+      let score = parseInt(answerX.value);
+      scoresArray.push(score);
     }
 
-    const url = "/api/tables";
+    const newFriend = {
+      name: nameInput.value,
+      photo: photoInput.value,
+      scores: scoresArray
+    };
+    console.log(newFriend);
+    const url = "/api/friends";
 
     fetch(url, {
-      method: 'POST',
-      body: JSON.stringify(newReservation),
+      method: "POST",
+      body: JSON.stringify(newFriend),
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       }
-    }).then(res => res.json())
+    })
+      .then(res => res.json())
       .then(data => {
+        // this is where the logic goes. 
+        
         if (data) {
-          alert("Yay! You are officially booked!");
-        } else {
-          alert("Sorry you are on the wait list");
+
+
+
+          alert("We are looking for a friend of yours now!");
         }
       })
-      .catch(error => console.error('Error:', error));
+      .catch(error => console.error("Error:", error));
 
     // Clear the form when submitting
     nameInput.value = "";
-    phoneInput.value = "";
-    emailInput.value = "";
-    uniqueIdInput.value = "";
-
+    photoInput.value = "";
   });
-
 </script>
