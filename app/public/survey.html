@@ -202,12 +202,45 @@
         </div>
       </footer>
     </div>
+
+    <div
+      class="modal fade"
+      id="matchModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="matchModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title"><strong>We've Found a match!</strong></h2>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <h2 id="match-name">match name</h2>
+            <img
+              id="match-img"
+              src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg"
+              alt="match image"
+              style="width:100%"
+            />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 
 <!-- Code for sending data to our server -->
 <script type="text/javascript">
-  
   const submitButton = document.querySelector(".submit");
 
   submitButton.addEventListener("click", event => {
@@ -241,19 +274,44 @@
     })
       .then(res => res.json())
       .then(data => {
-        // this is where the logic goes. 
-        
+        // this is where the logic goes.
+        // $("#matchModal").css(`aria-hidden="false"`);
+        // $('#myModal').modal(options)
         if (data) {
-
-
-
           alert("We are looking for a friend of yours now!");
         }
       })
       .catch(error => console.error("Error:", error));
+
+    // load modal with found match
+    $("#match-name").text("hello");
+    $("#match-img").attr(
+      "src",
+      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+    );
+
+    // toggle modal
+    $("#matchModal").modal("toggle");
 
     // Clear the form when submitting
     nameInput.value = "";
     photoInput.value = "";
   });
 </script>
+
+<!-- bootstrap javascript -->
+<script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"
+></script>
