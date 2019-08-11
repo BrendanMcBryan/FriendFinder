@@ -223,7 +223,7 @@
             <h2 id="match-name">match name</h2>
             <img
               id="match-img"
-              src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg"
+              src="https://i.ytimg.com/vi/aI4Bk4Dv2m0/hqdefault.jpg"
               alt="match image"
               style="width:100%"
             />
@@ -263,6 +263,37 @@
       scores: scoresArray
     };
     console.log(newFriend);
+    fetch("/api/friends")
+      .then(res => res.json())
+      .then(friendsData => {
+        // console.log(friendsData);
+        let yourFriend = "";
+        let yourFriendPhoto = "";
+        let closestScore = 40;
+        friendsData.forEach(friend => {
+          let scoreCompare = [];
+          for (i = 0; i < 10; i++) {
+            let scorediff = Math.abs(friend.scores[i] - newFriend.scores[i]);
+            scoreCompare.push(scorediff);
+          }
+          // console.log("✋" + scoreCompare);
+          let newScoreCompare = scoreCompare.reduce((a, b) => a + b, 0);
+          // console.log(newScoreCompare);
+          if (newScoreCompare < closestScore) {
+            closestScore = newScoreCompare;
+            yourFriend = friend.name;
+            yourFriendPhoto = friend.photo;
+          }
+        });
+
+        // load modal with found match
+        $("#match-name").text(yourFriend);
+        $("#match-img").attr("src", yourFriendPhoto);
+        
+        // console.log(yourFriend);
+        // console.log(yourFriendPhoto);
+      });
+
     const url = "/api/friends";
 
     fetch(url, {
@@ -273,22 +304,8 @@
       }
     })
       .then(res => res.json())
-      .then(data => {
-        // this is where the logic goes.
-        // $("#matchModal").css(`aria-hidden="false"`);
-        // $('#myModal').modal(options)
-        if (data) {
-          alert("We are looking for a friend of yours now!");
-        }
-      })
+      .then(data => {})
       .catch(error => console.error("Error:", error));
-
-    // load modal with found match
-    $("#match-name").text("hello");
-    $("#match-img").attr(
-      "src",
-      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
-    );
 
     // toggle modal
     $("#matchModal").modal("toggle");
