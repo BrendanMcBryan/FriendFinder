@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Friend Finder</title>
+</head>
+<body>
+  <h1>Survey Screen</h1>
+</body>
+
+
+</html>
+
+
+<script type="text/javascript">
+  // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+  // In essence, when the user hits submit, javascript grabs all of the fields then sends a post request to our api
+  // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
+  // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+
+  const submitButton = document.querySelector(".submit");
+
+  submitButton.addEventListener("click", event => {
+    event.preventDefault();
+
+    const nameInput = document.querySelector("#reserve-name");
+    const phoneInput = document.querySelector("#reserve-phone");
+    const emailInput = document.querySelector("#reserve-email");
+    const uniqueIdInput = document.querySelector("#reserve-unique-id");
+
+    const newReservation = {
+      customerName: nameInput.value,
+      phoneNumber: phoneInput.value,
+      customerEmail: emailInput.value,
+      customerID: uniqueIdInput.value
+    }
+
+    const url = "/api/tables";
+
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(newReservation),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+      .then(data => {
+        if (data) {
+          alert("Yay! You are officially booked!");
+        } else {
+          alert("Sorry you are on the wait list");
+        }
+      })
+      .catch(error => console.error('Error:', error));
+
+    // Clear the form when submitting
+    nameInput.value = "";
+    phoneInput.value = "";
+    emailInput.value = "";
+    uniqueIdInput.value = "";
+
+  });
+
+</script>
