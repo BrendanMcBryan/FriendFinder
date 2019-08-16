@@ -197,7 +197,7 @@
       <footer class="footer" style="margin-top: 2rem">
         <div class="container">
           <p>
-            <a href="/api/friends">API Table Link</a>
+            <a href="/api/friends">API Friends Link</a>
           </p>
         </div>
       </footer>
@@ -225,7 +225,7 @@
               id="match-img"
               src="https://i.ytimg.com/vi/aI4Bk4Dv2m0/hqdefault.jpg"
               alt="match image"
-              style="width:100%"
+              style="max-width:100%;max-height: 400px"
             />
           </div>
           <div class="modal-footer">
@@ -248,8 +248,8 @@
 
     const nameInput = document.querySelector("#nameInput");
     const photoInput = document.querySelector("#imgURLInput");
-
     const scoresArray = [];
+
     for (let i = 1; i < 11; i++) {
       let surveyQx = "#surveyQ" + i;
       let answerX = document.querySelector(surveyQx);
@@ -262,11 +262,12 @@
       photo: photoInput.value,
       scores: scoresArray
     };
-    console.log(newFriend);
+
+    // console.log(newFriend);
     fetch("/api/friends")
       .then(res => res.json())
       .then(friendsData => {
-        // console.log(friendsData);
+        console.log("friends data " + friendsData);
         let yourFriend = "";
         let yourFriendPhoto = "";
         let closestScore = 40;
@@ -276,9 +277,9 @@
             let scorediff = Math.abs(friend.scores[i] - newFriend.scores[i]);
             scoreCompare.push(scorediff);
           }
-          // console.log("✋" + scoreCompare);
+          console.log("✋ " + friend.name + " " + scoreCompare);
           let newScoreCompare = scoreCompare.reduce((a, b) => a + b, 0);
-          // console.log(newScoreCompare);
+          console.log(friend.name + " " + newScoreCompare);
           if (newScoreCompare < closestScore) {
             closestScore = newScoreCompare;
             yourFriend = friend.name;
@@ -289,7 +290,7 @@
         // load modal with found match
         $("#match-name").text(yourFriend);
         $("#match-img").attr("src", yourFriendPhoto);
-        
+
         // console.log(yourFriend);
         // console.log(yourFriendPhoto);
       });
@@ -313,6 +314,10 @@
     // Clear the form when submitting
     nameInput.value = "";
     photoInput.value = "";
+    // for (let i = 1; i < 11; i++) {
+    //   let surveyInputx = "surveyQ" + i;
+    //   surveyInputx.value = "1";
+    // }
   });
 </script>
 

@@ -7,8 +7,6 @@ const tableData = require("../data/friends");
 module.exports = app => {
   // API GET Requests
 
-  
-
   app.get("/api/friends", (req, res) => {
     res.json(tableData);
   });
